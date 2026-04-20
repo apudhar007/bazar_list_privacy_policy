@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Bazar List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep: #1a3c2e;
+      --green-mid: #2d6a4f;
+      --green-bright: #40916c;
+      --green-light: #74c69d;
+      --green-pale: #d8f3dc;
+      --saffron: #f4a261;
+      --saffron-warm: #e76f51;
+      --cream: #fefae0;
+      --text-dark: #1b2b22;
+      --text-body: #3a4f42;
+      --text-muted: #6b8c77;
+      --card-bg: rgba(255,255,255,0.72);
+      --border: rgba(45,106,79,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background texture ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(116,198,157,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 100%, rgba(244,162,97,0.14) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d6a4f' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-bright) 100%);
+      color: white;
+      padding: 64px 24px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 80px;
+      background: var(--cream);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(116,198,157,0.12);
+      pointer-events: none;
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      font-size: 36px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    header h1 span { color: var(--green-light); }
+
+    .header-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      opacity: 0.8;
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+      transform: translateY(-24px);
+    }
+
+    .toc-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      box-shadow: 0 8px 40px rgba(26,60,46,0.10);
+    }
+
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--green-mid);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .toc-item:hover {
+      background: var(--green-pale);
+      color: var(--green-deep);
+    }
+
+    .toc-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--saffron);
+      flex-shrink: 0;
+    }
+
+    /* ── Main content ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ── Section cards ── */
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 36px 32px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 24px rgba(26,60,46,0.07);
+      opacity: 0;
+      transform: translateY(24px);
+      animation: reveal 0.5s ease forwards;
+    }
+
+    @keyframes reveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section:nth-child(1) { animation-delay: 0.05s; }
+    .section:nth-child(2) { animation-delay: 0.10s; }
+    .section:nth-child(3) { animation-delay: 0.15s; }
+    .section:nth-child(4) { animation-delay: 0.20s; }
+    .section:nth-child(5) { animation-delay: 0.25s; }
+    .section:nth-child(6) { animation-delay: 0.30s; }
+    .section:nth-child(7) { animation-delay: 0.35s; }
+    .section:nth-child(8) { animation-delay: 0.40s; }
+    .section:nth-child(9) { animation-delay: 0.45s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(45,106,79,0.25);
+    }
+
+    .section-icon.orange {
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-warm));
+      box-shadow: 0 4px 12px rgba(244,162,97,0.25);
+    }
+
+    .section-icon.teal {
+      background: linear-gradient(135deg, #20b2aa, #008b8b);
+      box-shadow: 0 4px 12px rgba(32,178,170,0.25);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.25;
+    }
+
+    h2 .sec-num {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin-bottom: 14px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Highlight boxes ── */
+    .highlight-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--green-pale);
+      border-left: 4px solid var(--green-bright);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--green-deep);
+    }
+
+    .highlight-box.orange {
+      background: #fff3e8;
+      border-color: var(--saffron);
+      color: #7a3f1a;
+    }
+
+    .highlight-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Feature list ── */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+
+    .feature-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Permission pills ── */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--green-deep);
+      box-shadow: 0 2px 8px rgba(26,60,46,0.06);
+    }
+
+    .pill-icon { font-size: 14px; }
+
+    /* ── Contact card ── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      color: white;
+    }
+
+    .contact-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-label { font-size: 0.75rem; opacity: 0.7; margin-bottom: 2px; }
+
+    .contact-email {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-email a {
+      color: var(--green-light);
+      text-decoration: none;
+    }
+
+    .contact-email a:hover { text-decoration: underline; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 20px 0;
+    }
+
+    /* ── Meta bar ── */
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin-top: -10px;
+      margin-bottom: 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      box-shadow: 0 2px 12px rgba(26,60,46,0.06);
+    }
+
+    .meta-bar strong { color: var(--green-deep); }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--green-deep);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+    }
+
+    footer strong { color: var(--green-light); }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span { color: var(--green-light); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .section { padding: 24px 20px; }
+      .toc-card { padding: 20px; }
+      header { padding: 48px 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-icon">🛒</div>
+  <h1>Bazar <span>List</span></h1>
+  <p class="header-sub">Privacy Policy — Apdroid System</p>
+  <div class="badge-row">
+    <span class="badge">🔒 No Account Required</span>
+    <span class="badge">📱 Offline First</span>
+    <span class="badge">🛡️ Your Data, Your Device</span>
+  </div>
+</header>
+
+<!-- ══ TOC ══ -->
+<div class="toc-wrap">
+  <div class="toc-card">
+    <p class="toc-title">📋 Table of Contents</p>
+    <div class="toc-grid">
+      <a href="#overview" class="toc-item"><span class="toc-dot"></span>Overview</a>
+      <a href="#data-collected" class="toc-item"><span class="toc-dot"></span>Data We Collect</a>
+      <a href="#local-storage" class="toc-item"><span class="toc-dot"></span>Local Storage</a>
+      <a href="#admob" class="toc-item"><span class="toc-dot"></span>AdMob & Ads</a>
+      <a href="#permissions" class="toc-item"><span class="toc-dot"></span>App Permissions</a>
+      <a href="#data-control" class="toc-item"><span class="toc-dot"></span>Your Data Control</a>
+      <a href="#children" class="toc-item"><span class="toc-dot"></span>Children's Privacy</a>
+      <a href="#changes" class="toc-item"><span class="toc-dot"></span>Policy Changes</a>
+      <a href="#contact" class="toc-item"><span class="toc-dot"></span>Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- Meta bar -->
+  <div class="meta-bar">
+    <span>📅 Last updated: <strong>June 2025</strong></span>
+    <span>📦 App: <strong>Bazar List</strong></span>
+    <span>🏢 Developer: <strong>Apdroid System</strong></span>
+  </div>
+
+  <!-- 1. Overview -->
+  <section class="section" id="overview">
+    <div class="section-header">
+      <div class="section-icon">👋</div>
+      <h2><span class="sec-num">Section 01</span>Overview</h2>
+    </div>
+    <p>Welcome to <strong>Bazar List</strong> — your smart daily market companion, built by <strong>Apdroid System</strong>. This Privacy Policy explains how we handle your information when you use the Bazar List application on Android.</p>
+    <div class="highlight-box">
+      <span class="highlight-icon">💡</span>
+      <span>We built Bazar List with a privacy-first philosophy. <strong>No account. No login. No personal data collected by us.</strong> Your shopping data lives entirely on your device.</span>
+    </div>
+    <p>By using the app, you agree to the practices described in this policy. Please read it carefully.</p>
+  </section>
+
+  <!-- 2. Data Collected -->
+  <section class="section" id="data-collected">
+    <div class="section-header">
+      <div class="section-icon">🗄️</div>
+      <h2><span class="sec-num">Section 02</span>Data We (Don't) Collect</h2>
+    </div>
+    <div class="highlight-box">
+      <span class="highlight-icon">✅</span>
+      <span><strong>Apdroid System does not collect, transmit, or store any personal data</strong> on external servers. We do not require your name, email address, phone number, location, or any identifying information.</span>
+    </div>
+    <p>The only data created within the app is your shopping data — item names, quantities, prices, and dates — and this data <strong>never leaves your device</strong>.</p>
+    <ul class="feature-list">
+      <li>No user accounts or registration required</li>
+      <li>No personal identification information collected</li>
+      <li>No shopping data sent to our servers (we have none)</li>
+      <li>No analytics or crash reporting that identifies you personally</li>
+    </ul>
+  </section>
+
+  <!-- 3. Local Storage -->
+  <section class="section" id="local-storage">
+    <div class="section-header">
+      <div class="section-icon teal">📦</div>
+      <h2><span class="sec-num">Section 03</span>Local Data Storage</h2>
+    </div>
+    <p>Bazar List uses <strong>Android's Room Database</strong> — a local SQLite-based storage system — to save all your shopping records directly on your device. This enables the app to work fully offline.</p>
+    <div class="highlight-box">
+      <span class="highlight-icon">📱</span>
+      <span>All data including shopping lists, item prices, quantities, history records, and expense summaries are stored <strong>locally on your device only</strong>.</span>
+    </div>
+    <p>The following types of data are stored locally:</p>
+    <ul class="feature-list">
+      <li>Shopping list items (name, quantity, unit price, total)</li>
+      <li>Daily shopping records with date stamps</li>
+      <li>Historical shopping archive for past dates</li>
+      <li>Expense summary data (weekly, monthly, all-time totals)</li>
+    </ul>
+    <p>This data is only accessible by the Bazar List app on your device and is never synchronized to any cloud service by us.</p>
+  </section>
+
+  <!-- 4. AdMob -->
+  <section class="section" id="admob">
+    <div class="section-header">
+      <div class="section-icon orange">📢</div>
+      <h2><span class="sec-num">Section 04</span>Advertising — Google AdMob</h2>
+    </div>
+    <p>To keep Bazar List free for everyone, we use <strong>Google AdMob</strong> (Google's Mobile Ads SDK) to display advertisements within the app. The following ad formats are used:</p>
+    <ul class="feature-list">
+      <li><strong>Adaptive Banner Ads</strong> — displayed at the bottom of screens</li>
+      <li><strong>Native Ads</strong> — integrated into the app's UI (e.g., the Expense Summary screen) to blend naturally with the design</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="highlight-box orange">
+      <span class="highlight-icon">⚠️</span>
+      <span><strong>Important:</strong> Google AdMob is a third-party service. To serve relevant ads and measure performance, Google may independently collect certain device-specific information.</span>
+    </div>
+    <p>Data that <strong>Google AdMob may collect</strong> includes (but is not limited to):</p>
+    <ul class="feature-list">
+      <li>Device identifiers (e.g., Advertising ID / GAID)</li>
+      <li>Approximate or precise location data (based on your device settings)</li>
+      <li>Device type, operating system version, and hardware specs</li>
+      <li>App usage and interaction data</li>
+      <li>IP address and network information</li>
+    </ul>
+    <p>This data collection is governed entirely by <strong>Google's own Privacy Policy</strong>. We encourage you to review it:</p>
+    <p>👉 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--green-mid); font-weight: 600;">Google Privacy Policy — policies.google.com/privacy</a></p>
+    <p>You can opt out of personalized ads by adjusting your device's advertising settings under <em>Settings → Google → Ads → Opt out of Ads Personalization</em>.</p>
+  </section>
+
+  <!-- 5. Permissions -->
+  <section class="section" id="permissions">
+    <div class="section-header">
+      <div class="section-icon">🔑</div>
+      <h2><span class="sec-num">Section 05</span>App Permissions</h2>
+    </div>
+    <p>Bazar List requests the following Android permissions and uses them only for their stated purpose:</p>
+    <div class="pill-row">
+      <span class="pill"><span class="pill-icon">🌐</span> INTERNET</span>
+      <span class="pill"><span class="pill-icon">⚡</span> HARDWARE ACCELERATION</span>
+      <span class="pill"><span class="pill-icon">💾</span> STORAGE (Internal)</span>
+    </div>
+    <ul class="feature-list">
+      <li><strong>Internet Access:</strong> Required solely to load and display advertisements from Google AdMob. The app itself does not send your shopping data over the internet.</li>
+      <li><strong>Hardware Acceleration:</strong> Enabled to ensure smooth UI performance, animations, and proper rendering of ad content.</li>
+      <li><strong>Internal Storage:</strong> Used by the Room Database to persist your shopping lists and history on your device's private storage area.</li>
+    </ul>
+  </section>
+
+  <!-- 6. Data Control -->
+  <section class="section" id="data-control">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <h2><span class="sec-num">Section 06</span>Your Data Control</h2>
+    </div>
+    <p>You have complete control over your data in Bazar List. Since everything is stored locally on your device, you can manage it at any time:</p>
+    <ul class="feature-list">
+      <li><strong>Delete individual records:</strong> Remove any shopping entry or history item directly from the app interface.</li>
+      <li><strong>Clear all data:</strong> Go to <em>Android Settings → Apps → Bazar List → Storage → Clear Data</em> to permanently erase all app data from your device.</li>
+      <li><strong>Uninstall the app:</strong> Removes all associated data entirely from your device.</li>
+    </ul>
+    <div class="highlight-box">
+      <span class="highlight-icon">🔒</span>
+      <span>There is no account to delete, no server to request data removal from, and no backup copies of your data held by us. <strong>You are fully in control.</strong></span>
+    </div>
+  </section>
+
+  <!-- 7. Children -->
+  <section class="section" id="children">
+    <div class="section-header">
+      <div class="section-icon">👶</div>
+      <h2><span class="sec-num">Section 07</span>Children's Privacy</h2>
+    </div>
+    <p>Bazar List is a general-purpose shopping list application not specifically directed at children under the age of 13. We do not knowingly collect personal data from children.</p>
+    <p>Since we collect no personal data ourselves, there is no risk of us inadvertently storing children's information. However, as Google AdMob may collect device-level data, parents and guardians should be aware of this and review Google's policies if the app is used by children.</p>
+  </section>
+
+  <!-- 8. Changes -->
+  <section class="section" id="changes">
+    <div class="section-header">
+      <div class="section-icon">🔄</div>
+      <h2><span class="sec-num">Section 08</span>Changes to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time to reflect changes in the app's features, third-party integrations, or applicable regulations. When we do, we will update the <strong>"Last Updated"</strong> date at the top of this page.</p>
+    <p>We encourage you to review this policy periodically. Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+    <div class="highlight-box">
+      <span class="highlight-icon">📌</span>
+      <span>Significant changes that affect how your data is handled will be communicated through an in-app notice or a Play Store update description.</span>
+    </div>
+  </section>
+
+  <!-- 9. Contact -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <div class="section-icon orange">💬</div>
+      <h2><span class="sec-num">Section 09</span>Contact Us</h2>
+    </div>
+    <p>If you have any questions, concerns, or feedback regarding this Privacy Policy or the Bazar List app, please feel free to reach out:</p>
+    <div class="contact-card">
+      <div class="contact-avatar">👨‍💻</div>
+      <div>
+        <div class="contact-label">Developer / Data Controller</div>
+        <div class="contact-email"><strong>Apdroid System</strong></div>
+        <div class="contact-email">📧 <a href="mailto:psdhar@gmail.com">psdhar@gmail.com</a></div>
+      </div>
+    </div>
+    <p style="margin-top:16px; font-size: 0.85rem; color: var(--text-muted);">We aim to respond to all queries within 48–72 hours.</p>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">🛒 Bazar <span>List</span></div>
+  <p>Developed by <strong>Apdroid System</strong> · Bangladesh</p>
+  <p style="margin-top:6px;">© 2025 Apdroid System. All rights reserved.</p>
+  <p style="margin-top:10px; font-size:0.75rem; opacity:0.5;">This privacy policy was last reviewed in June 2025.</p>
+</footer>
+
+</body>
+</html>
