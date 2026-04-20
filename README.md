@@ -1,0 +1,1 @@
+# bazar_list_privacy_policy
